@@ -1,4 +1,4 @@
-ASSIGNMENT STATEMENT:
+ASSIGNMENT STATEMENT:   
 temperature = 98.6      #here, the IDENTIFIER/NAME (temperature) is associated with the OBJECT (98.6)
 Temperature = 37.0;     #in this example, Temperature is NOT temperature, because Python is CASE-SENSITIVE
 
