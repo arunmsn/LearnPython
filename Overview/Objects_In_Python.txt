@@ -1,6 +1,6 @@
-ASSIGNMENT STATEMENT:   
-temperature = 98.6      #here, the IDENTIFIER/NAME (temperature) is associated with the OBJECT (98.6)
-Temperature = 37.0;     #in this example, Temperature is NOT temperature, because Python is CASE-SENSITIVE
+ASSIGNMENT STATEMENT:
+temperature = 98.6      here, the IDENTIFIER/NAME (temperature) is associated with the OBJECT (98.6)
+Temperature = 37.0      in this example, Temperature is NOT temperature, because Python is CASE-SENSITIVE
 
 RESERVED WORDS:
 False       None        True        
@@ -37,6 +37,7 @@ ACCESSORS are methods that return information about the state of an object but d
 MUTATORS or UPDATE METHODS are methods that change the state of an object.
 
 BUILT-IN CLASSES:
+A class is immutable if each object of that class has a fixed value upon instantiation that cannot subsequently be changed
 Class       Description                             Immutable? (Y/N)
 bool        Boolean value                           Y
 int         integer (arbitrary magnitude)           Y
@@ -64,9 +65,14 @@ However, integral values can be represented using binary, octal, or hexadecimal 
 Literal represented values include:
 0b1011 (binary, using the b)    0o52 (octal, using the o)   0x7f (hexadecimal, using the x)
 default int() returns 0
-If f is a float, int(f) represents the truncated value  (if f = 3.72, int(f) = 3)   (if f = -3.72, int(f) = -3)
-If s is a string, int(s) represents the integral value  (if s = '198', int(s) = 198)    (if s = 'hello', int(s) = ValueError)
-Conversion from a different base requires two parameters: the value and the base    (int('7f', 16) is 127, as 7f is converted from 16 (hexadecimal) --> 7*16 + 15 = 127)
+If f is a float, int(f) represents the truncated value  
+    (if f = 3.72, int(f) = 3)
+    (if f = -3.72, int(f) = -3)
+If s is a string, int(s) represents the integral value  
+    (if s = '198', int(s) = 198)    
+    (if s = 'hello', int(s) = ValueError)
+Conversion from a different base requires two parameters: the value and the base    
+    (int('7f', 16) is 127, as 7f is converted from 16 (hexadecimal) --> 7*16 + 15 = 127)
 
 THE float CLASS:
 The trailing zero is optional, so it is legal to use 2 as a float rather than 2.0
@@ -74,3 +80,11 @@ Float can use scientific notation: f = 6.022e23 (Yay, Avogadro's number!)
 default float() returns 0.0
 float(2) represents 2.0
 float('3.14') represents ValueError (as '3.14' is a string, and float cannot parse strings)
+
+THE list/tuple/str CLASSES:
+list, tuple, and str are SEQUENCE types in Python, representing a collection of values in which the order is important
+list is the most general type, representing a sequence of objects in any order
+tuple is just the immutable variation of list, representing a sequence of objects in any order and cannot later be changed
+str is specially designed to represent a sequence of characters, say 'abc', that will never be changed later on in the program
+
+THE list CLASS:
