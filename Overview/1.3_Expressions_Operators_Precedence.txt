@@ -1,0 +1,128 @@
+NOTE: REVIEW Objects_In_Python BEFORE READING THE FOLLOWING SECTION!
+
+LOGICAL OPERATORS
+not     unary negation
+and     conditional and
+or      conditional or
+NOTICE: and & or are 'conditional' in the sense that they are not evaluated if the first operand can determine the boolean
+
+EQUALITY OPERATORS
+is      same identity
+is not  different identity
+==      equivalent
+!=      not equivalent
+When a and b are aliases for the same object, a is b will return True
+When a and b are aliases for the same object, a == b will return True
+When a and b are not aliases for the same object but have equal values, a is b will return False
+When a and b are not aliases for the same object but have equal values, a == b will return True
+In most cases, == and != are the appropriate operators, while is and is not are reserved for specific situations
+
+COMPARISION OPERATORS
+<       less than
+<=      less than or equal to
+>       greater than
+>=      greater than or equal to
+NOTE: When comparing different types (5 < 'hello'), an exception is raised
+
+ARITHMETIC OPERATORS
++       addition
+-       subtraction
+*       multiplication
+/       true division
+//      integer division
+%       modulo (remainder)
+Examples:
+    27 + 4 = 31
+    27 - 4 = 23
+    27 * 4 = 108
+    27 / 4 = 6.75 (float)
+    27 // 4 = 6 (truncated, due to integer division)
+    27 % 4 = 3 (remainder)
+Special cases:
+    Since Python guarantees for % that 0 <= r < n (basically, any number >= 0),
+        -27 // 4 = -7 while -27 % 4 = 1 (which comes from -7 * 4 + 1 = -27)
+    8.2 // 3.14 returns 2.0
+    8.2 % 3.14 returns 1.92 [stems from 2.0 * 3.14 + 1.92 = 8.2]
+
+BITWISE OPERATORS
+~       bitwise complement (prefix unary operator)
+&       bitwise and
+|       bitwise or
+^       bitwise exclusive-or
+<<      shift bits left, filling in with zeros
+>>      shift bits right, filling in with sign bit
+
+SEQUENCE OPERATORS
+REMINDER: PYTHON OPERATES ON A ZERO-INDEX LIST/SET BEHAVIOR
+s[j]                element at index j for set s
+s[start:stop]       slice including start and excluding stop
+s[start:stop:step]  slice including indices start, start+step, start+(2*step), ..., but excluding stop
+s + t               concatenation of sequences s and t
+k * s               shothand for s + s + s + ... (k times)
+val in s            containment check
+val not in s        non-containment check
+del s[j]            removes designated element at given index
+s == t              equivalent (element by element)
+s != t              not equivalent
+s < t               lexicographically less than
+s <= t              lexicographically less than or equal to
+s > t               lexicographically greater than
+s >= t              lexicographically greater than or equal to
+NOTE: Python supports negative indexing (moving in reverse):
+    s[-1] indicates the last element
+    s[-2] indicates the second to last element
+
+SET/DICT OPERATORS
+SET:
+key in s        containment check
+key not in s    non-containment check
+s1 == s2        s1 is equivalent to s2
+s1 != s2        s1 is not equivalent to s2
+s1 <= s2        s1 is a subset of s2 (they may be equal sets)
+s1 < s2         s1 is a proper subset of s2
+s1 >= s2        s2 is a subset of s1 [or s1 is a superset of s2] (they may be equal sets)
+s1 > s2         s2 is a proper subset of s1 [or s1 is proper superset of s2]
+s1 | s2         the union of s1 and s2          {remember geometry?}
+s1 & s2         the intersection of s1 and s2   {remember geometry?}
+s1 - s2         the set of elements in s1 but not in s2
+s1 ^ s2         the set of elements in precisely one of s1 or s2
+NOTE: These are not lexicographic, but rather numeric (as sets do not guarantee a particular order to elements)
+DICT:
+d[key]              value associated with given key
+d[key] == value     set (or reset) the valye associated with given key
+del d[key]          remove key and its associated value from dict
+key in d            containment check
+d1 == d2            d1 is equivalent to d2
+d1 != d2            d1 is not equivalent to d2
+
+EXTENDED ASSIGNMENT OPERATORS
+alpha = [1,2,3]
+beta = alpha        # an alias for alpha
+beta += [4,5]       # extends original list to two more elements
+beta = beta + [6,7] # reassigns beta to a new list [1,2,3,4,5,6,7]
+print(alpha)        # will be [1,2,3,4,5]
+NOTICE: beta += foo IS NOT THE SAME AS beta = beta + foo
+
+COMPOUND EXPRESSIONS AND OPERATOR PRECEDENCE:
+PRECEDENCE  TYPE                          SYMBOLS
+1           member access                 expr.member
+2           function/method calls         expr(...)
+            ontainer subscripts/slices    expr[...]
+3           exponentiation                **
+4           unary operators               +expr, -expr, ~expr
+5           multiplication, division      *, /, //, %
+6           addition, subtraction         +, -
+7           bitwise shifting              <<, >>
+8           bitwise-and                   &
+9           bitwise-xor                   ^
+10          bitwise-or                    |
+11          comparisions                  is, is not, ==, != <, <=, >, >=
+            containment                   in, not in
+12          logical-not                   not expr
+13          logical-and                   and
+14          logical-or                    or
+15          conditional                   val1 if cond else val2
+16          assignments                   =, +=, -=, *=, etc.
+NOTE: Python allows for chained assignment 
+        (x = y = 0)
+        1 <= x + y <= 10 is evaluated as compound (1 <= x + y) and (x + y <= 10)
