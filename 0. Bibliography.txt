@@ -1,0 +1,2 @@
+Sources Used:
+Goodrich, Michael T., et al. Data Structures and Algorithms in Python. Wiley, 2013. 

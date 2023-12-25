@@ -1,9 +1,7 @@
-NOTE: REVIEW Python_Program_Preview.py BEFORE READING THE FOLLOWING SECTION!
-
 ASSIGNMENT STATEMENT:
 temperature = 98.6      here, the IDENTIFIER/NAME (temperature) is associated with the OBJECT (98.6)
 Temperature = 37.0      in this example, Temperature is NOT temperature, because Python is CASE-SENSITIVE
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 RESERVED WORDS:
 False       None        True        
 and         as          assert      
@@ -16,18 +14,18 @@ is          lambda      nonlocal
 not         or          pass        
 raise       return      try         
 while       with        yield
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 DYNAMICALLY-TYPED:
 Unlike Java or C++, Python is DYNAMICALLY-TYPED, so there is no advance declaration of variable type.
 In Java or C++, we would declare it to be "int k = 0;"
 But in Python, we would declare it to be "k = 0" (NOTICE: there is no semicolon either)
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSTANTIATION:
 If there were a "Widget" class, then to instantiate it, the following would be the syntax:
     w = Widget()
 If "Widget" has parameters, the following would be the syntax:
     w = Widget(a,b,c)
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 CALLING METHODS:
 Classes in Python may also have METHODS (MEMBER FUNCTIONS) which are called the same way as Java or C++.
 For example, if we have a "Widget" class, and it has the method "organize", the following would be the syntax:
@@ -37,7 +35,7 @@ But when implementing the class and its methods, the following would be the synt
     w.organize()
 ACCESSORS are methods that return information about the state of an object but do not change the state.
 MUTATORS or UPDATE METHODS are methods that change the state of an object.
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 BUILT-IN CLASSES:
 A class is IMMUTABLE if each object of that class has a fixed value upon instantiation that cannot subsequently be changed
 Class       Description                             Immutable? (Yes/No)
@@ -50,7 +48,7 @@ str         character string                        Yes
 set         unordered set of distinct objects       No
 frozenset   immutable form of set class             Yes
 dict        associative mapping (aka dictionary)    No
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE bool CLASS:
 Has only two base values: True or False
 default bool() returns False
@@ -59,7 +57,7 @@ Numbers:    0 = False           1,2,3,etc. = True
 Strings:    empty = False       nonempty = True
 Lists:      empty = False       nonempty = True
 Important interpretation: using a nonboolean value as a conditional in a control structure
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE int CLASS:
 Python automatically assigns numbers the int or float type
 Literal integers include -345, 27, etc.
@@ -77,20 +75,20 @@ If s is a string, int(s) represents the integer value
     (if s = 'hello', int(s) = ValueError)
 Conversion from a different base requires two parameters: the value and the base    
     (int('7f', 16) is 127, as 7f is converted from 16 (hexadecimal) --> 7*16 + 15 = 127)
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE float CLASS:
 The trailing zero is optional, so it is legal to use 2 as a float rather than 2.0
 Float can use scientific notation: f = 6.022e23 (Yay, Avogadro's number!)
 default float() returns 0.0
 float(2) = 2.0
 float('3.14') = ValueError (as '3.14' is a string, and float cannot parse strings)
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE list/tuple/str CLASSES:
 list, tuple, and str are SEQUENCE types in Python, representing a collection of values in which the order is important
 list is the most general type, representing a sequence of objects in any order
 tuple is just the immutable variation of list, representing a sequence of objects in any order and cannot later be changed
 str is specially designed to represent a sequence of characters, say 'abc', that will never be changed later on in the program
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE list CLASS:
 list is a REFERENTIAL structure (as it stores a sequence of references to its elements)
 The objects inside a list maybe any arbitrary object (including None object)
@@ -105,7 +103,7 @@ list() will accept any ITERABLE type (string, list, tuples, sets, dictionaries, 
 Having a list of a list is just making another reference to the list
     list1 = ['hello', 'bye']
     list2 = list(list1)
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE tuple CLASS:
 The immutable version of a sequence
 While list uses [], tuple uses ()
@@ -115,7 +113,7 @@ One main difference: to represent a tuple with one element, it must be signified
     # comma is required for single-element tuple because 
     # (17) is just a number surrounded by parantheses, 
     # signifying an int, not a tuple
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE str CLASS:
 The immutable sequence of characters
 Strings can be used with '' ('hello') or "" ("hello")
@@ -127,7 +125,7 @@ Rather than using \n to indicate a new line, Python uses ''' or """ to indicate 
     print("""Welcome to the GPA Calculator.
     Please enter all your letter grades, one per line.
     Enter a blank line to designate the end.""")
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE set/frozenset CLASES:
 A set is named because it's a set (collection) of elements (with no duplicates!)
 The set and frozenset classes are based on hash tables (similar to Java's HashSet)
@@ -141,7 +139,7 @@ default set() represents the only way to initialize an empty set
 set() can also take inputs, just like list
     set("hello") = {'h', 'e', 'l', 'o'}
     # notice there is only one l, that is because a set has distinct elements and l repeats in "hello"
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 THE dict CLASS:
 dict is close to what it sounds like: a dictionary (mapping)
 dict is very similar to set, but instead of having only values, it contains associated value pairs (key:value)

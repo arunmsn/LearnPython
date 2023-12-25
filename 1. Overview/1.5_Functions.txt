@@ -1,0 +1,114 @@
+The following function counts the number of occurrences of a given target value within any form of iterable data set:
+def count(data, target):
+    n = 0
+    for item in data:
+        if item == target:
+            n += 1
+        return n
+
+Using a return statement works like the following:
+def contains(data, target):
+    for item in target:
+        if item == target:
+            return True         # if match is found, exits program here
+    return False                # if no match is found, exits program here
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+INFORMATION PASSING:
+An example of information passing works like the following:
+# using count function defined above
+prizes = count(grades, 'A')     # in this situation, data is set to grades and target is set to 'A'
+# in this example, the actual parameters are (grades, 'A') and formal parameters are (data, target)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+MUTABLE PARAMETERS:
+Because the formal parameter is an alias for the actual paramter, the body of functions may interact with the object in ways that change its state.
+If the body of the count function executes the command data.append('F'), the new entry is added to the end of the list known to the caller as grades.
+Reassigning a new value to a formal parameter with a function body, such as by setting data = [], does not alter the actual parameter. It only breaks the alias.
+An example of mutable parameters is the following:
+    def scale(data, factor):
+        for j in range(len(data)):
+            data[i] *= factor       # end result is all elements in data are multiplied by a specified factor
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEFAULT PARAMETER VALUES:
+A function is said to be POLYMORPHIC if it supports more than one possible calling signature.
+
+Suppose we have a function
+    def foo(a, b=15, c=27)          
+    # in this case, b and c provide default values while a doesn't
+
+if the user calls foo(4,12,8), then the following is used:
+    a=4, b=12, c=8
+    essentially overriding the default
+
+however, if the user calls foo(4), then the following is used:
+    a=4, b=15, c=27
+    essentially only setting a to 4 while leaving b and c to default values
+
+if the user calls foo(8,20), then the following is used:
+    a=8, b=20, c-27
+    essentially only setting a to 4 and b to 20 while leaving c to default
+an exception to this is if a user calls foo(8, b=15, 14), since it is illegal to have a default no subsequent defaults (meaning c has to be default)
+
+
+The best example to show for the default parameter values is reverting back to the GPA Calculator (Hopefully you reviewed 1.1!)
+def compute_gpa(grades, points = {'A+':4.0, 'A':4.0, 'A-':4.0, 'B+':3.33, 'B':3.0, 'B-':2.67, 'C+':2.33, 'C':2.0, 'C-':1.67, 'D+':1.33, 'D':1.0, 'D-':0.67, 'F':0.0}):
+    num_courses = 0
+    total_points = 0
+    for g in grades:
+        if g in points:                     # ensures grade is in points
+            num_courses += 1
+            total_pounts += points[g]
+    return (total_points / num_courses)
+
+
+As a nod to 1.3's SEQUENCE OPERATORS, we have the 'range' class (here we treat it as a function) supporting three different calls:
+    (1) range(n)
+    (2) range(start, stop)
+    (3) range(start, stop, step)
+But these violate the rules of defaults, since n provided in range(n) is the stop value, an illegal call to range. However, the way it works is like this:
+    def range(start, stop=None, step=1):
+        if stop is None:
+            stop = start
+            start = 0
+This program ensures that the full list of parameters (start, stop, step) are used without breaking any rules.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+KEYWORD PARAMETERS:
+The default parameters used a signature based on the concept of POSITIONAL ARGUMENTS, where with signature foo(a=10, b=20, c=30), foo(5) indicates a=5 with b and c defaulted.
+However, Python also supports KEYWORD ARGUMENTS, where with foo(a=10, b=20, c=30), we can call foo(c=5) and have a and b defaulted with c=5. 
+A clean example of a function that uses keyword arguments is the max function in Python. 
+    By default, the < is the best operator for this.
+    However, when comparing magnitude (say -20 and 10), we would use max(-20, 10, key=abs), which compares abs(-20) with abs(10) and returns -20. 
+    max is also polymorphic in its arguments, so max(a,b,c,d,e) is possible. 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+PYTHON'S BUILT-IN FUNCTIONS:
+CALLING SYNTAX                  DESCRIPTION
+abs(x)                          Return the absolute value of a number
+all(iterable)                   Return True if bool(e) is True for each element e
+any(iterable)                   Return True if bool(e) is True for at least one element e
+chr(integer)                    Return a one-character string with the given Unicode code point
+divmod(x,y)                     Return (x // y, x % y) as tuple, if x and y are integers
+hash(obj)                       Return an integer hash value for the object
+id(obj)                         Return the unique integer serving as an "identity" for the object
+input(prompt)                   Return a string from standard input; the prompt is optional
+isinstance(obj,cls)             Determine if obj is an instance of the class (or a subclass)
+iter(iterable)                  Return a new iterator object for the parameter
+len(iterable)                   Return the number of elements in the given iteration
+map(f,iter1,iter2,...)          Return an iterator yielding the result of function calls f(e1,e2,...) for respective elements e1 in iter1, e2 in iter2, etc.
+max(iterable)                   Return the largest element of the given iteration
+max(a,b,c,...)                  Return the largest of the arguments
+min(iterable)                   Return the smallest element of the given iteration
+min(a,b,c,...)                  Return the smallest of the arguments
+next(iterator)                  Return the next element reported by the iterator
+open(filename,mode)             Open a file with the given name and access mode
+ord(char)                       Return the Unicode code point of the given character
+pow(x,y)                        Return the value x^y, equivalent to x**y
+pow(x,y,z)                      Return the value of [(x^y) % z] as an integer
+print(obj1,obj2,...)            Print the arguments, with separating spaces and trailing newline
+range(stop)                     Construct an iteration of values 0,1,...,stop-1
+range(start,stop)               Construct an iteration of values start,start+1,...,stop-1
+range(start,stop,step)          Construct an iteration of values start,start+step*1,start+step*2,...
+reversed(sequence)              Return an iteration of the sequence in reverse
+round(x)                        Return the nearest int value
+round(x,k)                      Return the value rounded to nearest 10^-k (return type matches x)
+sorted(iterable)                Return a list containing elements of the iterable in sorted order
+sum(iterable)                   Return the sum of the elements in the iterable (must be numeric)
+type(obj)                       Return the class to which the instance obj belongs

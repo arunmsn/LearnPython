@@ -1,0 +1,65 @@
+CONDITIONALS:
+The most general form of conditional is written as following:
+    if first_condition:
+        first_body
+    elif second_condition:
+        second_body
+    elif third_condition:
+        third_body
+    else:
+        fourth_body
+
+While programming, when programmers use
+    if response:
+they are really using a shorthand for
+    if response != '':
+
+A nested control flow looks like the following:
+    if door_is_close:
+        if door_is_locked:
+            unlock_door()
+        open_door()
+    advance()
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+LOOPS:
+WHILE LOOPS:
+The most general form of while is written as following:
+    while condition:
+        body
+An example is:
+    j = 0
+    while j < len(data) and data[j] != 'X':
+        j += 1
+
+FOR LOOPS:
+The most general form of for is written as following:
+    for element in iterable:
+        body                    # body may refer to element as an identifier
+An example is:
+    total = 0
+    for val in data:
+        total += val
+Another example is:
+    biggest = data[0]           # we assume data is non-empty
+    for val in data:
+        if val > biggest:
+            biggest = val
+
+INDEX-BASED FOR LOOPS:
+The most general form of index-based for is written as following:
+    for j in range(len(data))
+An example is:
+    big_index = 0
+    for j in range(len(data)):
+    if data[j] > data[big_index]:
+        big_index = j
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+BREAK AND CONTINUE STATEMENTS:
+The most general form of break and continue is written as following:
+    found = False
+    for item in data:
+        if item == target:
+            found = True
+            break
+        elif item != target:        # this section is added to show use of continue
+            continue                # both continue and break are used very sparingly, but can be effective in certain situations

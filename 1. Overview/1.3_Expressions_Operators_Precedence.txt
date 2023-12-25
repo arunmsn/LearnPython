@@ -1,11 +1,9 @@
-NOTE: REVIEW Objects_In_Python BEFORE READING THE FOLLOWING SECTION!
-
 LOGICAL OPERATORS
 not     unary negation
 and     conditional and
 or      conditional or
 NOTICE: and & or are 'conditional' in the sense that they are not evaluated if the first operand can determine the boolean
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 EQUALITY OPERATORS
 is      same identity
 is not  different identity
@@ -16,14 +14,14 @@ When a and b are aliases for the same object, a == b will return True
 When a and b are not aliases for the same object but have equal values, a is b will return False
 When a and b are not aliases for the same object but have equal values, a == b will return True
 In most cases, == and != are the appropriate operators, while is and is not are reserved for specific situations
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 COMPARISION OPERATORS
 <       less than
 <=      less than or equal to
 >       greater than
 >=      greater than or equal to
 NOTE: When comparing different types (5 < 'hello'), an exception is raised
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ARITHMETIC OPERATORS
 +       addition
 -       subtraction
@@ -43,7 +41,7 @@ Special cases:
         -27 // 4 = -7 while -27 % 4 = 1 (which comes from -7 * 4 + 1 = -27)
     8.2 // 3.14 returns 2.0
     8.2 % 3.14 returns 1.92 [stems from 2.0 * 3.14 + 1.92 = 8.2]
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 BITWISE OPERATORS
 ~       bitwise complement (prefix unary operator)
 &       bitwise and
@@ -51,7 +49,7 @@ BITWISE OPERATORS
 ^       bitwise exclusive-or
 <<      shift bits left, filling in with zeros
 >>      shift bits right, filling in with sign bit
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 SEQUENCE OPERATORS
 REMINDER: PYTHON OPERATES ON A ZERO-INDEX LIST/SET BEHAVIOR
 s[j]                element at index j for set s
@@ -71,7 +69,7 @@ s >= t              lexicographically greater than or equal to
 NOTE: Python supports negative indexing (moving in reverse):
     s[-1] indicates the last element
     s[-2] indicates the second to last element
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 SET/DICT OPERATORS
 SET:
 key in s        containment check
@@ -94,7 +92,7 @@ del d[key]          remove key and its associated value from dict
 key in d            containment check
 d1 == d2            d1 is equivalent to d2
 d1 != d2            d1 is not equivalent to d2
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 EXTENDED ASSIGNMENT OPERATORS
 alpha = [1,2,3]
 beta = alpha        # an alias for alpha
@@ -102,7 +100,7 @@ beta += [4,5]       # extends original list to two more elements
 beta = beta + [6,7] # reassigns beta to a new list [1,2,3,4,5,6,7]
 print(alpha)        # will be [1,2,3,4,5]
 NOTICE: beta += foo IS NOT THE SAME AS beta = beta + foo
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 COMPOUND EXPRESSIONS AND OPERATOR PRECEDENCE:
 PRECEDENCE  TYPE                          SYMBOLS
 1           member access                 expr.member
