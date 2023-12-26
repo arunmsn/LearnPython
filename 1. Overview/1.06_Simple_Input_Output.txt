@@ -51,4 +51,3 @@ fp.tell()                   Return the current position, measured as byte-offset
 fp.write(string)            Write given string at current position of the writable file.
 fp.writelines(seq)          Write each of the strings of the given sequence at the current position of the writable file, writing no more than specified by the sequence.
 print(...,file=fp)          Redirect output of print function to the file.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
