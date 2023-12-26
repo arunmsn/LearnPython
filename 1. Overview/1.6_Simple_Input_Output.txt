@@ -1,1 +1,54 @@
 THE print FUNCTION:
+print("maroon",5) outputs "maroon 5" to the console but in reality outputting "maroon 5\n"
+default print() outputs "\n" (a single newline character)
+The default print() method [say, print("hello", "world")] is separated by spaces. To change this, there should be a final specification parameter.
+    print("hello", "world")             # outputs "hello world"
+    print("hello", "world", sep="-")    # outputs "hello-world"
+    print("hello", "world", sep='')     # outputs "helloworld"
+The default print() method [say, print("I love", "Python")] ends with a newline character. To change this, there should be a final specification parameter.
+    print("I love", "Python")           # outputs "I love Python\n"
+    print("I love", "Python", end='')   # outputs "I love Python"
+Both these can be used to program the following:
+    print("What is your name?", "Bob The Builder", sep=": ", end='! ')
+    print("@BobTheBuilder", "#bobbuilds", "\"BobTheBuilder\"", sep="|", end='')
+    # outputs --> What is your name? : Bob The Builder! @BobTheBuilder|#bobbuilds|"BobTheBuilder"
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+THE input FUNCTION:
+year = int(input("In what year were you born?: "))          # this program takes in an input after displaying the string parameter (optional) and sets the value to year
+
+A more complicated program:
+reply = input("Enter x and y, separated by spaces: ")
+pieces = reply.split()                                      # returns a list of strings, separated by spaces
+x = float(pieces[0])
+y = float(pieces[1])
+
+A more useful program:
+age = int(input("Enter your age in years: "))
+max_heart_rate = 206.9 - (0.67 * age)                       # this program assumes age is a valid input, and calculation based on Med Scho Spots Exerc.
+target = 0.65 * max_heart_rate
+print("Your target fat-burning heart rate is ", target)     # outputs the target heart rate based on calculations
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+FILES:
+Let's use the base command fp = open("sample.txt") [fp is short for file proxy, as the opened file is a proxy]
+This command attempts to open a files named "sample.txt" and returns a proxy view that is read-only access to the file.
+open() does accept second parameters to determine access mode, those being 
+    r (reading)             # to read files, intial position at 0
+    w (writing)             # this means any file named "sample.txt" (or whichever specified) will be overwritten, initial position at 0
+    a (appending)           # appends to the end of any existing file, initial position at end of file
+    rb (reading binary)     # works to read binary files
+    wb (writing binary)     # works to write on binary files
+
+CALLING SYNTAX              Description
+fp.open(filename,access)    Opens the file with the specified filename and access mode.
+fp.close()                  Closes the file.
+fp.read()                   Return the remaining contents of a readable file as a string.
+fp.read(k)                  Return the next k bytes of a readable file as a string.
+fp.readline()               Return (remainder of) the current line of a readable file as a string.
+fp.readlines()              Return all (remaining) lines of a readable file as a list of strings.
+for line in fp:             Iterate all remaining lines of a readable file.
+fp.seek(k)                  Change the current position to be at the kth byte of the file.
+fp.tell()                   Return the current position, measured as byte-offset from the start.
+fp.write(string)            Write given string at current position of the writable file.
+fp.writelines(seq)          Write each of the strings of the given sequence at the current position of the writable file, writing no more than specified by the sequence.
+print(...,file=fp)          Redirect output of print function to the file.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
