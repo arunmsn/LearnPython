@@ -48,7 +48,7 @@ def sumDirect(values):
 # in most cases, we well use "look before you leap" to avoid any exceptions needing to be raised (unless absolutely necessary)
 # For a division, we could use:
 if y != 0:
-    ratio = x/y;
+    ratio = x/y
 else:
     # do something else
     print("y is zero! Try again!")

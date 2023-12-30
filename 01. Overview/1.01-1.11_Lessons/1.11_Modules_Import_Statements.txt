@@ -1,0 +1,58 @@
+So far, we know of multiple functions (max, min) and classes (list, int). 
+Depending on the version of Python (I hope you are using the most recent one), there are 130-150 definitions deemed significant to be added into the namespace.
+But beyond these 150 definitions lies the tens and thousands of libraries (MODULES) that can be IMPORTED from within a program.
+The best example of the module is the math module.
+As you have seen, we have the abs, min, max, round, etc. that are built-in to Python.
+But the math module brings in the more complicated sine (sin), cosine (cos), square root (sqrt), and much more.
+The module also allows for better calculations by bringing in the pi and e values.
+
+So how do we actually bring these into our program? Through import statements.
+A model import statement works like the following:
+    from math import pi, sqrt       # this statement brings in the pi value and sqrt function from the math module
+    from math import *              # if you've programmed in Java, then you've used this at least once, simply bringing in all definitions inside the module
+                                    # so in this case, when using the *, you've brought in all the definitions inside the the math module
+    import math                     # this is a more simplistic approach to the import statements, and works the same as the above statement
+                                    # using this method, however, you must use the format math.func() (for example, math.sqrt(2)) rather than just func()
+
+Some existing modules are the following:
+MODULE NAME         DESCRIPTION
+array               Provides compact array storage for primitive types.
+collections         Defines additional data structures and abstract base classes involving collections of objects.
+copy                Defines general functions for making copies of obects.
+heapq               Provides heap-based priority queue functions. (we'll look at this later)
+math                Defines common mathematical constants and functions.
+os                  Provides support for interactions with the operating system.
+random              Provides random number generation.
+re                  Provides support for processing regular expressions. (what a throwback!)
+sys                 Provides additional level of interaction with the Python interpreter.
+time                Provides support for measuring time, or delaying a program.
+
+NOTICE: There is a random module in the list. While this provides only statistically random numbers, it is not truly random. 
+        The way it works is through a PSEUDO-RANDOM NUMBER GENERATOR, using a formula based on the most recently chosen number:
+            next = (a*current + b) % n
+            a, b, and n are appropriately chosen integers
+        At least, that's what the old systems use for random numbers. What Python uses is known as a MERSENNE TWISTER.
+        Not getting into too much detail about the math behind the Mersenne twister, it provides random numbers that are statistically uniform.
+        So when programming an application that requires security, using the Mersenne twister is not ideal, though it is more advanced than the formula.
+
+Methods supported by instances of the Random class (notice capitalization of Random) and as top-level functions of the random module (again, capitalization of random):
+SYNTAX                          DESCRIPTION
+seed(hashable)                  Initializes the pseudo-random number generator based upon the hash value of the parameter.
+random()                        Returns a pseudo-random floating value in the interval [0.0, 1.0). (say 0.878235987293572938572) [yes it was random keystrokes]
+randint(a,b)                    Returns a pseudo-random integer in the interval [a, b].
+randrange(start, stop, step)    Returns a pseudo-random integer in the standard Python range indicated by the parameters.
+choice(seq)                     Returns an element of the given sequence chosen pseudo-randomly. (chooses random)
+shuffle(seq)                    Returns the elements of the given sequence pseudo-randomly. (shuffles random)
+
+Now that we have seen what modules exist in Python, how do we actually make one?
+Well, when you make a program, all you need to do is make a file with a .py suffix (so like my 1.09_Python_Conveniences.py file)
+Inside the file, there should be definitions relevant to the module. The definitions can be imported from any other .py file.
+For example, if we were to put the definitions of our count function into a file named utility.py, we could import that function using the syntax:
+    from utility import count
+
+Another useful fact:
+Top-level commans with the module source code are executed when the module is first imported, almost as if the module were its own script.
+There is a special construct for embedding commands within the module that will be executed if the module is directly invoked as a script, but not when imported from another.
+    if __name__ == '__main__':
+        ...
+This approach is often used to embed what are known as UNIT TESTS within the module (this will be discussed in the next chapter)

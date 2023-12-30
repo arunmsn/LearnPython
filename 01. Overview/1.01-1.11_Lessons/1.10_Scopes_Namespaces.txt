@@ -1,0 +1,66 @@
+The process of determining a value associated with an idenfier is known as NAME RESOLUTION
+For example, when programming the following statement:
+    x + y
+The variables x and y need to previously associated with objects that serve as values:
+    x,y = 5,7
+Now the statement becomes valid. 
+If for some reason, the only variable declared was x:
+    x = 5
+and y is not, then a NameError will be thrown, as x + y is no longer possible (as y does not exist)
+
+When instantiating a variable, it is always given a SCOPE, which is the level at which the variable is used
+For example, in the following program:
+    x = 5
+    def foo() {
+        y = 7
+    }
+x has a GLOBAL scope while y has a LOCAL scope
+x is global since the whole program can access it while y is local since only the function foo() can access it
+
+Each distinct scope is represented using an abstraction known as a NAMESPACE, which manages all identifiers currently defined in a given scope.
+For example, in our count function, there are two namespaces:
+One for GPA, grades, and major and another for n, target, data, and item:
+The first namespace [with examples] is the following:
+    GPA - float [3.46]
+    grades - list ['A+', 'A', 'A-', 'B+', 'B', 'B-', ...]
+    major - string ['CS']
+The second namespace [with examples] is the following:
+    n - int [2]
+    target - string ['A']
+    data - list ['A+', 'A', 'A-', 'B+', 'B', 'B-', ...]
+    item - string ['A-']
+
+In Python, there are functions that allow you to example a given namespace.
+For example, the function 'dir' reports the names of the identifiers in a given namespaces (the keys of the dictionary)
+             the function 'vars' return the full dictionary
+By default, dir() and vars() report to the most locally enclosing namespace in which they are executed.
+
+When an identifier is indicated in a command, Python searches a series of namespaces in the process of name resolution (remember from all the way up top?)
+The process is as follows:
+    1. Most locally enclosing scope (so in our x,y function, it will search inside the def foo())
+    2. Second most locally enclosing scope (known as the outer scope, now it will search outside foo())
+    3. and so on...
+
+FIRST-CLASS OBJECTS:
+These are objects that are instances of a type that can be assigned to an idenfier, passed as a parameter, or returned by a function.
+All the data types we introduced in 1.2 (int, lists, etc.) are first-class types in Python.
+For example, the following program:
+    scream = print
+    scream('Hello')
+We didn't actually create a new program, but rather just set the variable scream to the existing print function
+If this were in a global scope, we would have essentially replaced print() with scream() for the entire program
+Another example of using a existing program is the following:
+    max(a,b, key=abs)
+This program essentially compares the magnitudes (absolute value) of a and b with each other, so even if a and b are negative, the smaller negative will be returned:
+    a = -2, b = -3
+using max(a, b, key=abs) we are doing the following:
+    max(-2, -3, key=abs) = max (2, 3) = 3, so b is returned
+
+When working with namespaces, with the code:
+    scream = print
+We are introducing the identifier (scream) into the current namespace with its value being the print function
+A similar case happens with we have a user-declared function:
+    def count(data, target):
+        ...
+In this case, we introduce the identifier count into the current namespace with its value represented by its implementation.
+With similar fashion, the name of a newly defined class is associated with the representation of the class (through the implementations) as its value.
