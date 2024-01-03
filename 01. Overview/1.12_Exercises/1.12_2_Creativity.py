@@ -138,7 +138,7 @@ def reverseInput():
     except EOFError:
         for line in reversed(lines):
             print(line)
-# reverseInput()
+reverseInput()
 
 # C-1.22
 # Write a short Python program that takes two arrays, a and b, of length n storing int values, and returns the dot product of a and b.
