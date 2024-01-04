@@ -83,38 +83,37 @@ print(giveChange())
 # That is, each input to the calculator, be it a number (like 12.34 or 1234) or an operator (like +, -, *, /, %), can be done on a separate line.
 # After each such input, you should output to the Python console what would be displayed on your calculator.
 def simpleCalculator():
-    print("Input Here! Type in ctrl+D or ctrl+Z to end input.")
+    print("Input Here! Type 'end' to finish input.")
     program = []
+    while True:
+        if input != '':
+            line = input()
+        if line == "end":
+            break
+        program.append(line)
+
+    for line in program:
+        print(line, end=" ")
+    print()
     final = 0
-    try:
-        while True:
-            instruct = input()
-            if input() != "":
-                program.append(instruct)
-    except EOFError:
-        for line in program:
-            print(line, end=" ")
-        for i in range(len(program)):
-            if program[i] == '+':
-                final += (program[i-1] + program[i+1])
-                program[i+1] = final
-                i += 1
-            elif program[i] == '-':
-                final += (program[i-1] - program[i+1])
-                program[i+1] = final
-                i += 1
-            elif program[i] == '*':
-                final += (program[i-1] * program[i+1])
-                program[i+1] = final
-                i += 1
-            elif program[i] == '/':
-                final += (program[i-1] / program[i+1])
-                program[i+1] = final
-                i += 1
-            elif program[i] == '%':
-                final += (program[i-1] % program[i+1])
-                program[i+1] = final
-                i += 1
-            else:
-                print("That's an invalid input!")
+    for i in range(len(program)):
+        if program[i] == '+':
+            final += (float(program[i-1]) + float(program[i+1]))
+            program[i+1] = final
+        elif program[i] == '-':
+            final += (float(program[i-1]) - float(program[i+1]))
+            program[i+1] = final
+        elif program[i] == '*':
+            final += (float(program[i-1]) * float(program[i+1]))
+            program[i+1] = final
+        elif program[i] == '/':
+            final += (float(program[i-1]) / float(program[i+1]))
+            program[i+1] = final
+        elif program[i] == '%':
+            final += (float(program[i-1]) % float(program[i+1]))
+            program[i+1] = final
+        else:
+            pass
+
+    print("Final result:", final)
 simpleCalculator()
